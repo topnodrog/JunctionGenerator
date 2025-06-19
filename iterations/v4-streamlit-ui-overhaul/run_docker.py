@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 """
-Simple script to build and run Archon Docker containers.
+Simple script to build and run JunctionGenerator Docker containers.
 """
 
 import os
@@ -45,7 +45,7 @@ def check_docker():
         return False
 
 def main():
-    """Main function to build and run Archon containers."""
+    """Main function to build and run JunctionGenerator containers."""
     # Check if Docker is available
     if not check_docker():
         return 1
@@ -63,38 +63,38 @@ def main():
         print("No .env file found. Continuing without environment variables.")
     
     # Build the MCP container
-    print("\n=== Building Archon MCP container ===")
+    print("\n=== Building JunctionGenerator MCP container ===")
     mcp_dir = base_dir / "mcp"
-    if run_command(["docker", "build", "-t", "archon-mcp:latest", "."], cwd=mcp_dir) != 0:
+    if run_command(["docker", "build", "-t", "JunctionGenerator-mcp:latest", "."], cwd=mcp_dir) != 0:
         print("Error building MCP container")
         return 1
     
-    # Build the main Archon container
-    print("\n=== Building main Archon container ===")
-    if run_command(["docker", "build", "-t", "archon:latest", "."], cwd=base_dir) != 0:
-        print("Error building main Archon container")
+    # Build the main JunctionGenerator container
+    print("\n=== Building main JunctionGenerator container ===")
+    if run_command(["docker", "build", "-t", "JunctionGenerator:latest", "."], cwd=base_dir) != 0:
+        print("Error building main JunctionGenerator container")
         return 1
     
     # Check if the container is already running
     try:
         result = subprocess.run(
-            ["docker", "ps", "-q", "--filter", "name=archon-container"],
+            ["docker", "ps", "-q", "--filter", "name=JunctionGenerator-container"],
             check=True,
             capture_output=True,
             text=True
         )
         if result.stdout.strip():
-            print("\n=== Stopping existing Archon container ===")
-            run_command(["docker", "stop", "archon-container"])
-            run_command(["docker", "rm", "archon-container"])
+            print("\n=== Stopping existing JunctionGenerator container ===")
+            run_command(["docker", "stop", "JunctionGenerator-container"])
+            run_command(["docker", "rm", "JunctionGenerator-container"])
     except subprocess.SubprocessError:
         pass
     
-    # Run the Archon container
-    print("\n=== Starting Archon container ===")
+    # Run the JunctionGenerator container
+    print("\n=== Starting JunctionGenerator container ===")
     cmd = [
         "docker", "run", "-d",
-        "--name", "archon-container",
+        "--name", "JunctionGenerator-container",
         "-p", "8501:8501",
         "-p", "8100:8100",
         "--add-host", "host.docker.internal:host-gateway"
@@ -105,20 +105,20 @@ def main():
         cmd.extend(env_args)
     
     # Add image name
-    cmd.append("archon:latest")
+    cmd.append("JunctionGenerator:latest")
     
     if run_command(cmd) != 0:
-        print("Error starting Archon container")
+        print("Error starting JunctionGenerator container")
         return 1
     
     # Wait a moment for the container to start
     time.sleep(2)
     
     # Print success message
-    print("\n=== Archon is now running! ===")
+    print("\n=== JunctionGenerator is now running! ===")
     print("-> Access the Streamlit UI at: http://localhost:8501")
     print("-> MCP container is ready to use - see the MCP tab in the UI.")
-    print("\nTo stop Archon, run: docker stop archon-container && docker rm archon-container")
+    print("\nTo stop JunctionGenerator, run: docker stop JunctionGenerator-container && docker rm JunctionGenerator-container")
     
     return 0
 

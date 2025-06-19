@@ -1,6 +1,6 @@
-# Archon V1 - Basic Pydantic AI Agent to Build other Pydantic AI Agents
+# JunctionGenerator V1 - Basic Pydantic AI Agent to Build other Pydantic AI Agents
 
-This is the first iteration of the Archon project - no use of LangGraph and built with a single AI agent to keep things very simple and introductory.
+This is the first iteration of the JunctionGenerator project - no use of LangGraph and built with a single AI agent to keep things very simple and introductory.
 
 An intelligent documentation crawler and RAG (Retrieval-Augmented Generation) agent built using Pydantic AI and Supabase that is capable of building other Pydantic AI agents. The agent crawls the Pydantic AI documentation, stores content in a vector database, and provides Pydantic AI agent code by retrieving and analyzing relevant documentation chunks.
 
@@ -24,8 +24,8 @@ An intelligent documentation crawler and RAG (Retrieval-Augmented Generation) ag
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/coleam00/archon.git
-cd archon/iterations/v1-single-agent
+git clone https://github.com/coleam00/JunctionGenerator.git
+cd JunctionGenerator/iterations/v1-single-agent
 ```
 
 2. Install dependencies (recommended to use a Python virtual environment):

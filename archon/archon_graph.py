@@ -21,12 +21,12 @@ from pydantic_ai.messages import (
 
 # Add the parent directory to Python path
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-from archon.pydantic_ai_coder import pydantic_ai_coder, PydanticAIDeps
-from archon.advisor_agent import advisor_agent, AdvisorDeps
-from archon.refiner_agents.prompt_refiner_agent import prompt_refiner_agent
-from archon.refiner_agents.tools_refiner_agent import tools_refiner_agent, ToolsRefinerDeps
-from archon.refiner_agents.agent_refiner_agent import agent_refiner_agent, AgentRefinerDeps
-from archon.agent_tools import list_documentation_pages_tool
+from JunctionGenerator.pydantic_ai_coder import pydantic_ai_coder, PydanticAIDeps
+from JunctionGenerator.advisor_agent import advisor_agent, AdvisorDeps
+from JunctionGenerator.refiner_agents.prompt_refiner_agent import prompt_refiner_agent
+from JunctionGenerator.refiner_agents.tools_refiner_agent import tools_refiner_agent, ToolsRefinerDeps
+from JunctionGenerator.refiner_agents.agent_refiner_agent import agent_refiner_agent, AgentRefinerDeps
+from JunctionGenerator.agent_tools import list_documentation_pages_tool
 from utils.utils import get_env_var, get_clients
 
 # Load environment variables
@@ -118,11 +118,11 @@ async def define_scope_with_reasoner(state: AgentState):
 
 # Advisor agent - create a starting point based on examples and prebuilt tools/MCP servers
 async def advisor_with_examples(state: AgentState):
-    # Get the directory one level up from the current file (archon_graph.py)
+    # Get the directory one level up from the current file (JunctionGenerator_graph.py)
     current_dir = os.path.dirname(os.path.abspath(__file__))
     parent_dir = os.path.dirname(current_dir)
     
-    # The agent-resources folder is adjacent to the parent folder of archon_graph.py
+    # The agent-resources folder is adjacent to the parent folder of JunctionGenerator_graph.py
     agent_resources_dir = os.path.join(parent_dir, "agent-resources")
     
     # Get a list of all files in the agent-resources directory and its subdirectories

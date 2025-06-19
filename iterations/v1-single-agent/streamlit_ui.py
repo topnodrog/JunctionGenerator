@@ -105,7 +105,7 @@ async def run_agent_with_streaming(user_input: str):
 
 
 async def main():
-    st.title("Archon - Agent Builder")
+    st.title("JunctionGenerator - Agent Builder")
     st.write("Describe to me an AI agent you want to build and I'll code it for you with Pydantic AI.")
 
     # Initialize chat history in session state if not present

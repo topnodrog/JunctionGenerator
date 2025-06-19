@@ -1,6 +1,6 @@
-# Archon V5 - Multi-Agent Coding Workflow
+# JunctionGenerator V5 - Multi-Agent Coding Workflow
 
-This is the fifth iteration of the Archon project, building upon V4 by implementing a multi-agent coding workflow with specialized refiner agents. The system retains the comprehensive Streamlit UI and Docker support from V4, but now adds a sophisticated refinement process with specialized agents for different aspects of agent creation.
+This is the fifth iteration of the JunctionGenerator project, building upon V4 by implementing a multi-agent coding workflow with specialized refiner agents. The system retains the comprehensive Streamlit UI and Docker support from V4, but now adds a sophisticated refinement process with specialized agents for different aspects of agent creation.
 
 What makes V5 special is its approach to agent refinement. The primary coding agent still creates the initial cohesive agent structure, but now users can trigger specialized refiner agents by simply saying "refine" in the chat. This activates three parallel specialized agents that focus on optimizing different aspects of the agent:
 
@@ -17,7 +17,7 @@ The core remains an intelligent documentation crawler and RAG (Retrieval-Augment
 - **Two-Phase Development**: Initial cohesive structure followed by specialized refinement
 - **Simple Refinement Trigger**: Just say "refine" to activate the specialized agents
 - **Improved Workflow Orchestration**: Enhanced LangGraph implementation
-- **Comprehensive Streamlit UI**: Unified interface for all Archon functionality (from V4)
+- **Comprehensive Streamlit UI**: Unified interface for all JunctionGenerator functionality (from V4)
 - **Docker Support**: Containerized deployment with automated build and run scripts (from V4)
 - **Multiple LLM Support**: OpenAI, Anthropic, OpenRouter, and local Ollama models
 
@@ -35,13 +35,13 @@ The V5 architecture introduces a more sophisticated agent workflow:
    - Agent Refiner Agent enhances the agent configuration
 6. **Integrated Improvements**: Primary coding agent incorporates all refinements
 7. **Iterative Process**: Steps 4-6 repeat until the user is satisfied
-8. **Finalization**: Archon provides the complete code with execution instructions
+8. **Finalization**: JunctionGenerator provides the complete code with execution instructions
 
 ### Agent Graph
 
 The LangGraph workflow orchestrates the entire process:
 
-![Archon Graph](../../public/ArchonGraph.png)
+![JunctionGenerator Graph](../../public/JunctionGeneratorGraph.png)
 
 The graph shows how control flows between different agents and how user input can either continue the conversation or trigger the refinement process.
 
@@ -76,13 +76,13 @@ The graph shows how control flows between different agents and how user input ca
 ### Option 1: Docker (Recommended)
 1. Clone the repository:
 ```bash
-git clone https://github.com/coleam00/archon.git
-cd archon
+git clone https://github.com/coleam00/JunctionGenerator.git
+cd JunctionGenerator
 ```
 
 2. Run the Docker setup script:
 ```bash
-# This will build both containers and start Archon
+# This will build both containers and start JunctionGenerator
 python run_docker.py
 ```
 
@@ -91,8 +91,8 @@ python run_docker.py
 ### Option 2: Local Python Installation
 1. Clone the repository:
 ```bash
-git clone https://github.com/coleam00/archon.git
-cd archon
+git clone https://github.com/coleam00/JunctionGenerator.git
+cd JunctionGenerator
 ```
 
 2. Install dependencies:
@@ -113,24 +113,24 @@ streamlit run streamlit_ui.py
 
 To use the new refinement feature in V5:
 
-1. Start a conversation with Archon and describe the agent you want to create
-2. After Archon generates the initial agent, type "refine" or a similar phrase
-3. Archon will activate the specialized refiner agents in parallel
-4. Once refinement is complete, Archon will present the improved agent
+1. Start a conversation with JunctionGenerator and describe the agent you want to create
+2. After JunctionGenerator generates the initial agent, type "refine" or a similar phrase
+3. JunctionGenerator will activate the specialized refiner agents in parallel
+4. Once refinement is complete, JunctionGenerator will present the improved agent
 5. You can continue to provide feedback or request additional refinements
-6. When satisfied, ask Archon to finalize the agent
+6. When satisfied, ask JunctionGenerator to finalize the agent
 
 ## Core Files
 
 ### Refiner Agents
-- `archon/refiner_agents/`: Directory containing specialized refiner agents
+- `JunctionGenerator/refiner_agents/`: Directory containing specialized refiner agents
   - `prompt_refiner_agent.py`: Agent specialized in optimizing system prompts
   - `tools_refiner_agent.py`: Agent focused on implementing and improving tools
   - `agent_refiner_agent.py`: Agent for optimizing agent configuration and dependencies
 
 ### Workflow Orchestration
-- `archon/archon_graph.py`: Enhanced LangGraph workflow with refinement paths
-- `archon/pydantic_ai_coder.py`: Main coding agent with RAG capabilities
+- `JunctionGenerator/JunctionGenerator_graph.py`: Enhanced LangGraph workflow with refinement paths
+- `JunctionGenerator/pydantic_ai_coder.py`: Main coding agent with RAG capabilities
 
 ## Contributing
 

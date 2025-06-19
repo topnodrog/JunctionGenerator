@@ -1,8 +1,8 @@
-# Archon V6 - Tool Library and MCP Integration
+# JunctionGenerator V6 - Tool Library and MCP Integration
 
-This is the sixth iteration of the Archon project, building upon V5 by implementing a comprehensive library of prebuilt tools, examples, and MCP server integrations. The system retains the multi-agent coding workflow with specialized refiner agents from V5, but now adds a powerful advisor agent that can recommend and incorporate prebuilt components.
+This is the sixth iteration of the JunctionGenerator project, building upon V5 by implementing a comprehensive library of prebuilt tools, examples, and MCP server integrations. The system retains the multi-agent coding workflow with specialized refiner agents from V5, but now adds a powerful advisor agent that can recommend and incorporate prebuilt components.
 
-What makes V6 special is its approach to reducing development time and hallucinations through component reuse. The advisor agent can now analyze the user's requirements and recommend relevant prebuilt tools, examples, and MCP server integrations from the agent-resources library. This significantly enhances Archon's capabilities and reduces the need to create everything from scratch.
+What makes V6 special is its approach to reducing development time and hallucinations through component reuse. The advisor agent can now analyze the user's requirements and recommend relevant prebuilt tools, examples, and MCP server integrations from the agent-resources library. This significantly enhances JunctionGenerator's capabilities and reduces the need to create everything from scratch.
 
 1. **Advisor Agent**: Recommends relevant prebuilt tools, examples, and MCP servers
 2. **Tools Refiner Agent**: Now also validates and optimizes MCP server configurations
@@ -36,13 +36,13 @@ The V6 architecture enhances the V5 workflow with prebuilt component integration
    - Agent Refiner Agent enhances the agent configuration
 7. **Integrated Improvements**: Primary coding agent incorporates all refinements
 8. **Iterative Process**: Steps 5-7 repeat until the user is satisfied
-9. **Finalization**: Archon provides the complete code with execution instructions
+9. **Finalization**: JunctionGenerator provides the complete code with execution instructions
 
 ### Agent Graph
 
 The LangGraph workflow orchestrates the entire process:
 
-![Archon Graph](../../public/ArchonGraph.png)
+![JunctionGenerator Graph](../../public/JunctionGeneratorGraph.png)
 
 The graph shows how control flows between different agents and how the advisor agent now contributes to the initial agent creation process.
 
@@ -83,24 +83,24 @@ The graph shows how control flows between different agents and how the advisor a
 
 To leverage the prebuilt components in V6:
 
-1. Start a conversation with Archon and describe the agent you want to create
-2. Archon will automatically analyze your requirements through the advisor agent
+1. Start a conversation with JunctionGenerator and describe the agent you want to create
+2. JunctionGenerator will automatically analyze your requirements through the advisor agent
 3. Relevant prebuilt components will be recommended and incorporated into your agent
 4. You can request refinement to further optimize the agent
 5. The tools refiner agent will validate and optimize any MCP server configurations
-6. When satisfied, ask Archon to finalize the agent
+6. When satisfied, ask JunctionGenerator to finalize the agent
 
 ## Core Files
 
 ### Advisor Components
-- `archon/advisor_agent.py`: Agent that recommends relevant prebuilt components
-- `archon/agent-resources/`: Directory containing prebuilt tools, examples, and MCP configurations
+- `JunctionGenerator/advisor_agent.py`: Agent that recommends relevant prebuilt components
+- `JunctionGenerator/agent-resources/`: Directory containing prebuilt tools, examples, and MCP configurations
 
 ### Refiner Agents
-- `archon/refiner_agents/tools_refiner_agent.py`: Enhanced to validate MCP configurations
+- `JunctionGenerator/refiner_agents/tools_refiner_agent.py`: Enhanced to validate MCP configurations
 
 ### Workflow Orchestration
-- `archon/archon_graph.py`: Updated LangGraph workflow with advisor integration
+- `JunctionGenerator/JunctionGenerator_graph.py`: Updated LangGraph workflow with advisor integration
 
 ## Contributing
 
@@ -117,13 +117,13 @@ Contributions are welcome! The prebuilt component library is just starting out, 
 ### Option 1: Docker (Recommended)
 1. Clone the repository:
 ```bash
-git clone https://github.com/coleam00/archon.git
-cd archon
+git clone https://github.com/coleam00/JunctionGenerator.git
+cd JunctionGenerator
 ```
 
 2. Run the Docker setup script:
 ```bash
-# This will build both containers and start Archon
+# This will build both containers and start JunctionGenerator
 python run_docker.py
 ```
 
@@ -132,8 +132,8 @@ python run_docker.py
 ### Option 2: Local Python Installation
 1. Clone the repository:
 ```bash
-git clone https://github.com/coleam00/archon.git
-cd archon
+git clone https://github.com/coleam00/JunctionGenerator.git
+cd JunctionGenerator
 ```
 
 2. Install dependencies:

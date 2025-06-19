@@ -38,7 +38,7 @@ def generate_mcp_config():
     # Create the config dictionary
     config = {
         "mcpServers": {
-            "archon": {
+            "JunctionGenerator": {
                 "command": python_path,
                 "args": [server_script_path]
             }

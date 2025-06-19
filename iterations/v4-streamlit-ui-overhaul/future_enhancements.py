@@ -4,7 +4,7 @@ def future_enhancements_tab():
     # Display the future enhancements and integrations interface
     st.write("## Future Enhancements")
     
-    st.write("Explore what's coming next for Archon - from specialized multi-agent workflows to autonomous framework learning.")
+    st.write("Explore what's coming next for JunctionGenerator - from specialized multi-agent workflows to autonomous framework learning.")
     
     # Future Iterations section
     st.write("### Future Iterations")
@@ -100,7 +100,7 @@ def future_enhancements_tab():
         st.write("Pre-built external tool and agent examples incorporation")
         st.write("""
             With pre-built tools, the agent can pull full functions from the tool library so it doesn't have to 
-            create them from scratch. On top of that, pre-built agents will give Archon a starting point 
+            create them from scratch. On top of that, pre-built agents will give JunctionGenerator a starting point 
             so it doesn't have to build the agent structure from scratch either.
             """)
         
@@ -366,7 +366,7 @@ def future_enhancements_tab():
             st.info("""
             **In-Context Learning with Examples**
             
-            These example agents will be used in the system prompt for Archon, providing concrete examples that help the LLM understand the expected structure and quality of agent code. This approach leverages in-context learning to significantly improve code generation quality and consistency.
+            These example agents will be used in the system prompt for JunctionGenerator, providing concrete examples that help the LLM understand the expected structure and quality of agent code. This approach leverages in-context learning to significantly improve code generation quality and consistency.
             """)
     
     # V7: LangGraph Documentation
@@ -622,7 +622,7 @@ def future_enhancements_tab():
         - Collecting performance metrics for optimization
         """)
         
-        st.info("This enables Archon to test and refine agents in a controlled environment before deployment, significantly improving reliability and performance through empirical iteration.")
+        st.info("This enables JunctionGenerator to test and refine agents in a controlled environment before deployment, significantly improving reliability and performance through empirical iteration.")
     
     # V10: Multi-Framework Support
     with st.expander("V10: Multi-Framework Support"):
@@ -664,7 +664,7 @@ def future_enhancements_tab():
         for i, phase in enumerate(improvement_process):
             st.write(f"**{i+1}. {phase['phase']}:** {phase['description']}")
         
-        st.info("This enables Archon to stay updated with the latest AI frameworks without manual intervention.")
+        st.info("This enables JunctionGenerator to stay updated with the latest AI frameworks without manual intervention.")
     
     # V12: Advanced RAG Techniques
     with st.expander("V12: Advanced RAG Techniques"):
@@ -708,17 +708,17 @@ def future_enhancements_tab():
             - **Adaptive Retrieval**: Learning from successful and unsuccessful retrievals
             """)
         
-        st.info("This enables Archon to more effectively retrieve and incorporate framework documentation, leading to more accurate and contextually appropriate agent generation.")
+        st.info("This enables JunctionGenerator to more effectively retrieve and incorporate framework documentation, leading to more accurate and contextually appropriate agent generation.")
     
     # V13: MCP Agent Marketplace
     with st.expander("V13: MCP Agent Marketplace"):
-        st.write("Integrating Archon agents as MCP servers and publishing to marketplaces")
+        st.write("Integrating JunctionGenerator agents as MCP servers and publishing to marketplaces")
         
         st.write("#### MCP Integration Process")
         
         mcp_integration_process = [
             {"phase": "Protocol Implementation", "description": "Implement the Model Context Protocol to enable IDE integration"},
-            {"phase": "Agent Conversion", "description": "Transform Archon-generated agents into MCP-compatible servers"},
+            {"phase": "Agent Conversion", "description": "Transform JunctionGenerator-generated agents into MCP-compatible servers"},
             {"phase": "Specialized Agent Creation", "description": "Build purpose-specific agents for code review, refactoring, and testing"},
             {"phase": "Marketplace Publishing", "description": "Package and publish agents to MCP marketplaces for distribution"},
             {"phase": "IDE Integration", "description": "Enable seamless operation within Windsurf, Cursor, and other MCP-enabled IDEs"}
@@ -727,7 +727,7 @@ def future_enhancements_tab():
         for i, phase in enumerate(mcp_integration_process):
             st.write(f"**{i+1}. {phase['phase']}:** {phase['description']}")
         
-        st.info("This enables Archon to create specialized agents that operate directly within IDEs through the MCP protocol, while also making them available through marketplace distribution channels.")
+        st.info("This enables JunctionGenerator to create specialized agents that operate directly within IDEs through the MCP protocol, while also making them available through marketplace distribution channels.")
     
     # Future Integrations section
     st.write("### Future Integrations")
@@ -753,8 +753,8 @@ def future_enhancements_tab():
         
         st.write("#### MCP Marketplace Integration")
         st.markdown("""
-        - Publish Archon itself as a premium agent in MCP marketplaces
-        - Create specialized Archon variants for different development needs
+        - Publish JunctionGenerator itself as a premium agent in MCP marketplaces
+        - Create specialized JunctionGenerator variants for different development needs
         - Enable one-click installation directly from within IDEs
         - Integrate seamlessly with existing development workflows
         """)
@@ -772,7 +772,7 @@ def future_enhancements_tab():
             rankdir=TB;
             node [shape=box, style=filled, color=lightblue];
             
-            Archon [label="Archon Core"];
+            JunctionGenerator [label="JunctionGenerator Core"];
             Adapter [label="Framework Adapter Layer"];
             
             Pydantic [label="Pydantic AI", color=lightskyblue];
@@ -782,7 +782,7 @@ def future_enhancements_tab():
             CrewAI [label="CrewAI", color=lightskyblue];
             LlamaIndex [label="LlamaIndex", color=lightskyblue];
             
-            Archon -> Adapter;
+            JunctionGenerator -> Adapter;
             Adapter -> Pydantic;
             Adapter -> LangGraph;
             Adapter -> LangChain;
@@ -828,4 +828,4 @@ def future_enhancements_tab():
         - **Lower Latency**: Reduce response times for better UX
         """)
         
-        st.info("This integration will allow Archon to operate fully offline with local models for both agent creation and execution.")
+        st.info("This integration will allow JunctionGenerator to operate fully offline with local models for both agent creation and execution.")

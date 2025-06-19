@@ -24,7 +24,7 @@ def generate_mcp_config(ide_type, python_path, server_script_path):
     # Create the config dictionary for Python
     python_config = {
         "mcpServers": {
-            "archon": {
+            "JunctionGenerator": {
                 "command": python_path,
                 "args": [server_script_path]
             }
@@ -34,7 +34,7 @@ def generate_mcp_config(ide_type, python_path, server_script_path):
     # Create the config dictionary for Docker
     docker_config = {
         "mcpServers": {
-            "archon": {
+            "JunctionGenerator": {
                 "command": "docker",
                 "args": [
                     "run",
@@ -42,7 +42,7 @@ def generate_mcp_config(ide_type, python_path, server_script_path):
                     "--rm",
                     "-e", 
                     "GRAPH_SERVICE_URL",
-                    "archon-mcp:latest"
+                    "JunctionGenerator-mcp:latest"
                 ],
                 "env": {
                     "GRAPH_SERVICE_URL": "http://host.docker.internal:8100"
@@ -55,7 +55,7 @@ def generate_mcp_config(ide_type, python_path, server_script_path):
     if ide_type == "Windsurf":
         return json.dumps(python_config, indent=2), json.dumps(docker_config, indent=2)
     elif ide_type == "Cursor":
-        return f"{python_path} {server_script_path}", f"docker run -i --rm -e GRAPH_SERVICE_URL=http://host.docker.internal:8100 archon-mcp:latest"
+        return f"{python_path} {server_script_path}", f"docker run -i --rm -e GRAPH_SERVICE_URL=http://host.docker.internal:8100 JunctionGenerator-mcp:latest"
     elif ide_type == "Cline/Roo Code":
         return json.dumps(python_config, indent=2), json.dumps(docker_config, indent=2)
     elif ide_type == "Claude Code":
@@ -121,7 +121,7 @@ def mcp_tab():
             st.markdown("- Python 3.11+ installed")
             st.markdown("- Virtual environment created and activated")
             st.markdown("- All dependencies installed via `pip install -r requirements.txt`")
-            st.markdown("- Must be running Archon not within a container")           
+            st.markdown("- Must be running JunctionGenerator not within a container")           
         
         # Instructions based on IDE type
         st.markdown("---")
@@ -140,7 +140,7 @@ def mcp_tab():
             #### How to use in Cursor:
             1. Go to Cursor Settings > Features > MCP
             2. Click on "+ Add New MCP Server"
-            3. Name: Archon
+            3. Name: JunctionGenerator
             4. Type: command (equivalent to stdio)
             5. Command: Paste the command from your preferred configuration tab above
             """)
@@ -156,16 +156,16 @@ def mcp_tab():
         elif selected_ide == "Claude Code":
             st.markdown(f"""
             #### How to use in Claude Code:
-            1. Deploy and run Archon in Docker
-            2. In the Archon UI, start the MCP service.
+            1. Deploy and run JunctionGenerator in Docker
+            2. In the JunctionGenerator UI, start the MCP service.
             3. Open a terminal and navigate to your work folder.
             4. Execute the command: 
             
-            \tFor Docker: `claude mcp add Archon docker run -i --rm -e GRAPH_SERVICE_URL=http://host.docker.internal:8100 archon-mcp:latest `   
-            \tFor Python: `claude mcp add Archon {python_path} {server_script_path}`
+            \tFor Docker: `claude mcp add JunctionGenerator docker run -i --rm -e GRAPH_SERVICE_URL=http://host.docker.internal:8100 JunctionGenerator-mcp:latest `   
+            \tFor Python: `claude mcp add JunctionGenerator {python_path} {server_script_path}`
             
-            5. Start Claude Code with the command `claude`. When Claude Code starts, at the bottom of the welcome section will be a listing of connected MCP Services, Archon should be listed with a status of _connected_.
-            6. You can now use the Archon MCP service in your Claude Code projects
+            5. Start Claude Code with the command `claude`. When Claude Code starts, at the bottom of the welcome section will be a listing of connected MCP Services, JunctionGenerator should be listed with a status of _connected_.
+            6. You can now use the JunctionGenerator MCP service in your Claude Code projects
                         
             (NOTE: If you close the terminal, or start a session in a new terminal, you will need to re-add the MCP service.)
             """)

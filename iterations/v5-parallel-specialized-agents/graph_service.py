@@ -1,7 +1,7 @@
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 from typing import Optional, Dict, Any
-from archon.archon_graph import agentic_flow
+from JunctionGenerator.JunctionGenerator_graph import agentic_flow
 from langgraph.types import Command
 from utils.utils import write_to_log
     
@@ -61,7 +61,7 @@ async def invoke_agent(request: InvokeRequest):
         return {"response": response}
         
     except Exception as e:
-        print(f"Exception invoking Archon for thread {request.thread_id}: {str(e)}")
+        print(f"Exception invoking JunctionGenerator for thread {request.thread_id}: {str(e)}")
         write_to_log(f"Error processing message for thread {request.thread_id}: {str(e)}")
         raise HTTPException(status_code=500, detail=str(e))
 

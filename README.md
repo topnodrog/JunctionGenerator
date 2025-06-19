@@ -1,6 +1,6 @@
-# Archon - AI Agent Builder
+# JunctionGenerator - AI Agent Builder
 
-<img src="public/Archon.png" alt="Archon Logo" />
+<img src="public/JunctionGenerator.png" alt="JunctionGenerator Logo" />
 
 <div align="center" style="margin-top: 20px;margin-bottom: 30px">
 
@@ -11,26 +11,26 @@
 
 </div>
 
-> **🔄 IMPORTANT UPDATE (March 31st)**: Archon now includes a library of prebuilt tools, examples, and MCP server integrations. Archon can now incorporate these resources when building new agents, significantly enhancing capabilities and reducing hallucinations. Note that the examples/tool library for Archon is just starting out. Please feel free to contribute examples, MCP servers, and prebuilt tools!
+> **🔄 IMPORTANT UPDATE (March 31st)**: JunctionGenerator now includes a library of prebuilt tools, examples, and MCP server integrations. JunctionGenerator can now incorporate these resources when building new agents, significantly enhancing capabilities and reducing hallucinations. Note that the examples/tool library for JunctionGenerator is just starting out. Please feel free to contribute examples, MCP servers, and prebuilt tools!
 
-Archon is the world's first **"Agenteer"**, an AI agent designed to autonomously build, refine, and optimize other AI agents. 
+JunctionGenerator is the world's first **"Agenteer"**, an AI agent designed to autonomously build, refine, and optimize other AI agents. 
 
 It serves both as a practical tool for developers and as an educational framework demonstrating the evolution of agentic systems.
-Archon will be developed in iterations, starting with just a simple Pydantic AI agent that can build other Pydantic AI agents,
+JunctionGenerator will be developed in iterations, starting with just a simple Pydantic AI agent that can build other Pydantic AI agents,
 all the way to a full agentic workflow using LangGraph that can build other AI agents with any framework.
-Through its iterative development, Archon showcases the power of planning, feedback loops, and domain-specific knowledge in creating robust AI agents.
+Through its iterative development, JunctionGenerator showcases the power of planning, feedback loops, and domain-specific knowledge in creating robust AI agents.
 
 ## Important Links
 
-- The current version of Archon is V6 as mentioned above - see [V6 Documentation](iterations/v6-tool-library-integration/README.md) for details.
+- The current version of JunctionGenerator is V6 as mentioned above - see [V6 Documentation](iterations/v6-tool-library-integration/README.md) for details.
 
-- I **just** created the [Archon community](https://thinktank.ottomator.ai/c/archon/30) forum over in the oTTomator Think Tank! Please post any questions you have there!
+- I **just** created the [JunctionGenerator community](https://thinktank.ottomator.ai/c/JunctionGenerator/30) forum over in the oTTomator Think Tank! Please post any questions you have there!
 
 - [GitHub Kanban board](https://github.com/users/coleam00/projects/1) for feature implementation and bug squashing.
 
 ## Vision
 
-Archon demonstrates three key principles in modern AI development:
+JunctionGenerator demonstrates three key principles in modern AI development:
 
 1. **Agentic Reasoning**: Planning, iterative feedback, and self-evaluation overcome the limitations of purely reactive systems
 2. **Domain Knowledge Integration**: Seamless embedding of frameworks like Pydantic AI and LangGraph within autonomous workflows
@@ -38,9 +38,9 @@ Archon demonstrates three key principles in modern AI development:
 
 ## Getting Started with V6 (current version)
 
-Since V6 is the current version of Archon, all the code for V6 is in both the main directory and `archon/iterations/v6-tool-library-integration` directory.
+Since V6 is the current version of JunctionGenerator, all the code for V6 is in both the main directory and `JunctionGenerator/iterations/v6-tool-library-integration` directory.
 
-Note that the examples/tool library for Archon is just starting out. Please feel free to contribute examples, MCP servers, and prebuilt tools!
+Note that the examples/tool library for JunctionGenerator is just starting out. Please feel free to contribute examples, MCP servers, and prebuilt tools!
 
 ### Prerequisites
 - Docker (optional but preferred)
@@ -53,13 +53,13 @@ Note that the examples/tool library for Archon is just starting out. Please feel
 #### Option 1: Docker (Recommended)
 1. Clone the repository:
 ```bash
-git clone https://github.com/coleam00/archon.git
-cd archon
+git clone https://github.com/coleam00/JunctionGenerator.git
+cd JunctionGenerator
 ```
 
 2. Run the Docker setup script:
 ```bash
-# This will build both containers and start Archon
+# This will build both containers and start JunctionGenerator
 python run_docker.py
 ```
 
@@ -67,15 +67,15 @@ python run_docker.py
 
 > **Note:** `run_docker.py` will automatically:
 > - Build the MCP server container
-> - Build the main Archon container
-> - Run Archon with the appropriate port mappings
+> - Build the main JunctionGenerator container
+> - Run JunctionGenerator with the appropriate port mappings
 > - Use environment variables from `.env` file if it exists
 
 #### Option 2: Local Python Installation
 1. Clone the repository:
 ```bash
-git clone https://github.com/coleam00/archon.git
-cd archon
+git clone https://github.com/coleam00/JunctionGenerator.git
+cd JunctionGenerator
 ```
 
 2. Install dependencies:
@@ -99,7 +99,7 @@ After installation, follow the guided setup process in the Intro section of the 
 - **Database**: Set up your Supabase vector database
 - **Documentation**: Crawl and index the Pydantic AI documentation
 - **Agent Service**: Start the agent service for generating agents
-- **Chat**: Interact with Archon to create AI agents
+- **Chat**: Interact with JunctionGenerator to create AI agents
 - **MCP** (optional): Configure integration with AI IDEs
 
 The Streamlit interface will guide you through each step with clear instructions and interactive elements.
@@ -107,17 +107,17 @@ There are a good amount of steps for the setup but it goes quick!
 
 ### Troubleshooting
 
-If you encounter any errors when using Archon, please first check the logs in the "Agent Service" tab.
+If you encounter any errors when using JunctionGenerator, please first check the logs in the "Agent Service" tab.
 Logs specifically for MCP are also logged to `workbench/logs.txt` (file is automatically created) so please
 check there. The goal is for you to have a clear error message before creating a bug here in the GitHub repo
 
-### Updating Archon
+### Updating JunctionGenerator
 
 #### Option 1: Docker
-To get the latest updates for Archon when using Docker:
+To get the latest updates for JunctionGenerator when using Docker:
 
 ```bash
-# Pull the latest changes from the repository (from within the archon directory)
+# Pull the latest changes from the repository (from within the JunctionGenerator directory)
 git pull
 
 # Rebuild and restart the containers with the latest changes
@@ -125,15 +125,15 @@ python run_docker.py
 ```
 
 The `run_docker.py` script will automatically:
-- Detect and remove any existing Archon containers (whether running or stopped)
+- Detect and remove any existing JunctionGenerator containers (whether running or stopped)
 - Rebuild the containers with the latest code
 - Start fresh containers with the updated version
 
 #### Option 2: Local Python Installation
-To get the latest updates for Archon when using local Python installation:
+To get the latest updates for JunctionGenerator when using local Python installation:
 
 ```bash
-# Pull the latest changes from the repository (from within the archon directory)
+# Pull the latest changes from the repository (from within the JunctionGenerator directory)
 git pull
 
 # Install any new dependencies
@@ -145,7 +145,7 @@ pip install -r requirements.txt
 streamlit run streamlit_ui.py
 ```
 
-This ensures you're always running the most recent version of Archon with all the latest features and bug fixes.
+This ensures you're always running the most recent version of JunctionGenerator with all the latest features and bug fixes.
 
 ## Project Evolution
 
@@ -171,7 +171,7 @@ This ensures you're always running the most recent version of Archon with all th
 
 ### V4: Streamlit UI Overhaul
 - Docker support
-- Comprehensive Streamlit interface for managing all aspects of Archon
+- Comprehensive Streamlit interface for managing all aspects of JunctionGenerator
 - Guided setup process with interactive tabs
 - Environment variable management through the UI
 - Database setup and documentation crawling simplified
@@ -199,13 +199,13 @@ This ensures you're always running the most recent version of Archon with all th
 - [Learn more about V6](iterations/v6-tool-library-integration/README.md)
 
 ### Future Iterations
-- V7: LangGraph Documentation - Allow Archon to build Pydantic AI AND LangGraph agents
+- V7: LangGraph Documentation - Allow JunctionGenerator to build Pydantic AI AND LangGraph agents
 - V8: Self-Feedback Loop - Automated validation and error correction
 - V9: Self Agent Execution - Testing and iterating on agents in an isolated environment
 - V10: Multi-Framework Support - Framework-agnostic agent generation
 - V11: Autonomous Framework Learning - Self-updating framework adapters
 - V12: Advanced RAG Techniques - Enhanced retrieval and incorporation of framework documentation
-- V13: MCP Agent Marketplace - Integrating Archon agents as MCP servers and publishing to marketplaces
+- V13: MCP Agent Marketplace - Integrating JunctionGenerator agents as MCP servers and publishing to marketplaces
 
 ### Future Integrations
 - LangSmith
@@ -214,39 +214,39 @@ This ensures you're always running the most recent version of Archon with all th
 - Other vector databases besides Supabase
 - [Local AI package](https://github.com/coleam00/local-ai-packaged) for the agent environment
 
-## Archon Agents Architecture
+## JunctionGenerator Agents Architecture
 
-The below diagram from the LangGraph studio is a visual representation of the Archon agent graph.
+The below diagram from the LangGraph studio is a visual representation of the JunctionGenerator agent graph.
 
-<img src="public/ArchonGraph.png" alt="Archon Graph" />
+<img src="public/JunctionGeneratorGraph.png" alt="JunctionGenerator Graph" />
 
 The flow works like this:
 
 1. You describe the initial AI agent you want to create
 2. The reasoner LLM creates the high level scope for the agent
 3. The primary coding agent uses the scope and documentation to create the initial agent
-4. Control is passed back to you to either give feedback or ask Archon to 'refine' the agent autonomously
+4. Control is passed back to you to either give feedback or ask JunctionGenerator to 'refine' the agent autonomously
 5. If refining autonomously, the specialized agents are invoked to improve the prompt, tools, and agent configuration
 6. The primary coding agent is invoked again with either user or specialized agent feedback
 7. The process goes back to step 4 until you say the agent is complete
-8. Once the agent is complete, Archon spits out the full code again with instructions for running it
+8. Once the agent is complete, JunctionGenerator spits out the full code again with instructions for running it
 
 ## File Architecture
 
 ### Core Files
-- `streamlit_ui.py`: Comprehensive web interface for managing all aspects of Archon
+- `streamlit_ui.py`: Comprehensive web interface for managing all aspects of JunctionGenerator
 - `graph_service.py`: FastAPI service that handles the agentic workflow
-- `run_docker.py`: Script to build and run Archon Docker containers
-- `Dockerfile`: Container definition for the main Archon application
+- `run_docker.py`: Script to build and run JunctionGenerator Docker containers
+- `Dockerfile`: Container definition for the main JunctionGenerator application
 
 ### MCP Integration
 - `mcp/`: Model Context Protocol server implementation
   - `mcp_server.py`: MCP server script for AI IDE integration
   - `Dockerfile`: Container definition for the MCP server
 
-### Archon Package
-- `archon/`: Core agent and workflow implementation
-  - `archon_graph.py`: LangGraph workflow definition and agent coordination
+### JunctionGenerator Package
+- `JunctionGenerator/`: Core agent and workflow implementation
+  - `JunctionGenerator_graph.py`: LangGraph workflow definition and agent coordination
   - `pydantic_ai_coder.py`: Main coding agent with RAG capabilities
   - `refiner_agents/`: Specialized agents for refining different aspects of the created agent
     - `prompt_refiner_agent.py`: Optimizes system prompts
@@ -262,18 +262,18 @@ The flow works like this:
 ### Workbench
 - `workbench/`: Created at runtime, files specific to your environment
   - `env_vars.json`: Environment variables defined in the UI are stored here (included in .gitignore, file is created automatically)
-  - `logs.txt`: Low level logs for all Archon processes go here
-  - `scope.md`: The detailed scope document created by the reasoner model at the start of each Archon execution
+  - `logs.txt`: Low level logs for all JunctionGenerator processes go here
+  - `scope.md`: The detailed scope document created by the reasoner model at the start of each JunctionGenerator execution
 
 ## Deployment Options
-- **Docker Containers**: Run Archon in isolated containers with all dependencies included
+- **Docker Containers**: Run JunctionGenerator in isolated containers with all dependencies included
   - Main container: Runs the Streamlit UI and graph service
   - MCP container: Provides MCP server functionality for AI IDEs
 - **Local Python**: Run directly on your system with a Python virtual environment
 
 ### Docker Architecture
 The Docker implementation consists of two containers:
-1. **Main Archon Container**:
+1. **Main JunctionGenerator Container**:
    - Runs the Streamlit UI on port 8501
    - Hosts the Graph Service on port 8100
    - Built from the root Dockerfile

@@ -59,7 +59,7 @@ def show_manual_sql_instructions(sql, vector_dim, recreate=False):
 def database_tab(supabase):
     """Display the database configuration interface"""
     st.header("Database Configuration")
-    st.write("Set up and manage your Supabase database tables for Archon.")
+    st.write("Set up and manage your Supabase database tables for JunctionGenerator.")
     
     # Check if Supabase is configured
     if not supabase:

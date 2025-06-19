@@ -4,7 +4,7 @@ import sys
 import os
 
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-from archon.crawl_pydantic_ai_docs import start_crawl_with_requests, clear_existing_records
+from JunctionGenerator.crawl_pydantic_ai_docs import start_crawl_with_requests, clear_existing_records
 from utils.utils import get_env_var, create_new_tab_button
 
 def documentation_tab(supabase_client):

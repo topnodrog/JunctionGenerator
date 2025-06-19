@@ -4,7 +4,7 @@ import os
 
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from utils.utils import (
-    get_env_var, save_env_var, reload_archon_graph, 
+    get_env_var, save_env_var, reload_JunctionGenerator_graph, 
     get_current_profile, set_current_profile, get_all_profiles,
     create_profile, delete_profile, get_profile_env_vars
 )
@@ -38,7 +38,7 @@ def environment_tab():
                     del st.session_state.embedding_provider
                 
                 st.success(f"Switched to profile: {selected_profile}, reloading...")
-                reload_archon_graph(show_reload_success=False)
+                reload_JunctionGenerator_graph(show_reload_success=False)
                 st.rerun()
             else:
                 st.error("Failed to switch profile.")
@@ -84,7 +84,7 @@ def environment_tab():
                     del st.session_state.embedding_provider
                 
                 st.success(f"Deleted profile: {selected_profile}, reloading...")
-                reload_archon_graph(show_reload_success=False)
+                reload_JunctionGenerator_graph(show_reload_success=False)
                 st.rerun()
             else:
                 st.error("Failed to delete profile.")
@@ -93,7 +93,7 @@ def environment_tab():
     
     # Environment variables section
     st.subheader(f"Environment Variables for Profile: {current_profile}")
-    st.write("- Configure your environment variables for Archon. These settings will be saved and used for future sessions.")
+    st.write("- Configure your environment variables for JunctionGenerator. These settings will be saved and used for future sessions.")
     st.write("- NOTE: Press 'enter' to save after inputting a variable, otherwise click the 'save' button at the bottom.")
     st.write("- HELP: Hover over the '?' icon on the right for each environment variable for help/examples.")
     st.warning("⚠️ If your agent service for MCP is already running, you'll need to restart it after changing environment variables.")
@@ -359,4 +359,4 @@ def environment_tab():
             
             if success:
                 st.success(f"Environment variables saved successfully to profile: {current_profile}!")
-                reload_archon_graph()
+                reload_JunctionGenerator_graph()

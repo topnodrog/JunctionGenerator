@@ -6,7 +6,7 @@ import streamlit as st
 
 def load_css():
     """
-    Load the custom CSS styles for the Archon UI.
+    Load the custom CSS styles for the JunctionGenerator UI.
     """
     st.markdown("""
         <style>

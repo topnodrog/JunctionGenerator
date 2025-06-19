@@ -1,8 +1,8 @@
-# Archon V3 - AI Agent Generator with MCP Support
+# JunctionGenerator V3 - AI Agent Generator with MCP Support
 
-This is the third iteration of the Archon project, building upon V2 by adding MCP server support for seamless integration with AI IDEs like Windsurf and Cursor. The system starts with a reasoning LLM that analyzes user requirements and documentation to create a detailed scope, which then guides specialized coding and routing agents in generating high-quality Pydantic AI agents.
+This is the third iteration of the JunctionGenerator project, building upon V2 by adding MCP server support for seamless integration with AI IDEs like Windsurf and Cursor. The system starts with a reasoning LLM that analyzes user requirements and documentation to create a detailed scope, which then guides specialized coding and routing agents in generating high-quality Pydantic AI agents.
 
-What makes V3 special is its ability to run as an MCP server, allowing AI IDEs to directly leverage Archon's agent generation capabilities. When you ask your AI IDE to create a new agent, Archon can not only generate the code but the IDE can automatically write it to the appropriate files, manage dependencies, and help you test the agent - creating a powerful synergy between agent generation and development environment.
+What makes V3 special is its ability to run as an MCP server, allowing AI IDEs to directly leverage JunctionGenerator's agent generation capabilities. When you ask your AI IDE to create a new agent, JunctionGenerator can not only generate the code but the IDE can automatically write it to the appropriate files, manage dependencies, and help you test the agent - creating a powerful synergy between agent generation and development environment.
 
 The core remains an intelligent documentation crawler and RAG (Retrieval-Augmented Generation) system built using Pydantic AI, LangGraph, and Supabase. The system crawls the Pydantic AI documentation, stores content in a vector database, and provides Pydantic AI agent code by retrieving and analyzing relevant documentation chunks.
 
@@ -30,14 +30,14 @@ This version supports both local LLMs with Ollama and cloud-based LLMs through O
 
 ## Installation
 
-There are two ways to install Archon V3:
+There are two ways to install JunctionGenerator V3:
 
 ### Option 1: Standard Installation (for using the Streamlit UI)
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/coleam00/archon.git
-cd archon/iterations/v3-mcp-support
+git clone https://github.com/coleam00/JunctionGenerator.git
+cd JunctionGenerator/iterations/v3-mcp-support
 ```
 
 2. Install dependencies:
@@ -76,7 +76,7 @@ This will:
    - **In Cursor**:
         - Go to Cursor Settings > Features > MCP
         - Click on "+ Add New MCP Server"
-        - Name: Archon
+        - Name: JunctionGenerator
         - Type: command (equivalent to stdio)
         - Command: Paste the command that `setup_mcp.py` gave for Cursor
 
@@ -117,7 +117,7 @@ If using Ollama with the nomic-embed-text embedding model or another with 786 di
 To crawl and store documentation in the vector database:
 
 ```bash
-python archon/crawl_pydantic_ai_docs.py
+python JunctionGenerator/crawl_pydantic_ai_docs.py
 ```
 
 This will:
@@ -133,11 +133,11 @@ This will:
 python graph_service.py
 ```
 
-Archon runs as a separate API endpoint for MCP instead of directly in the MCP server because that way Archon can be updated separately without having to restart the MCP server, and the communication protocols for MCP seemed to interfere with LLM calls when done directly within the MCP server.
+JunctionGenerator runs as a separate API endpoint for MCP instead of directly in the MCP server because that way JunctionGenerator can be updated separately without having to restart the MCP server, and the communication protocols for MCP seemed to interfere with LLM calls when done directly within the MCP server.
 
 2. Restart the MCP server in your AI IDE
-3. You can now ask your AI IDE to create agents with Archon
-4. Be sure to specify when you want to use Archon - not necessary but it helps a lot
+3. You can now ask your AI IDE to create agents with JunctionGenerator
+4. Be sure to specify when you want to use JunctionGenerator - not necessary but it helps a lot
 
 ### Using the Streamlit UI
 
@@ -177,9 +177,9 @@ CREATE TABLE site_pages (
 - `requirements.txt`: Project dependencies
 - `.env.example`: Example environment variables
 
-### Archon Package
-- `archon/`: Core agent and workflow implementation
-  - `archon_graph.py`: LangGraph workflow definition and agent coordination
+### JunctionGenerator Package
+- `JunctionGenerator/`: Core agent and workflow implementation
+  - `JunctionGenerator_graph.py`: LangGraph workflow definition and agent coordination
   - `pydantic_ai_coder.py`: Main coding agent with RAG capabilities
   - `crawl_pydantic_ai_docs.py`: Documentation crawler and processor
 

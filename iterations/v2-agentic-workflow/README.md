@@ -1,12 +1,12 @@
-# Archon V2 - Agentic Workflow for Building Pydantic AI Agents
+# JunctionGenerator V2 - Agentic Workflow for Building Pydantic AI Agents
 
-This is the second iteration of the Archon project, building upon V1 by introducing LangGraph for a full agentic workflow. The system starts with a reasoning LLM (like O3-mini or R1) that analyzes user requirements and documentation to create a detailed scope, which then guides specialized coding and routing agents in generating high-quality Pydantic AI agents.
+This is the second iteration of the JunctionGenerator project, building upon V1 by introducing LangGraph for a full agentic workflow. The system starts with a reasoning LLM (like O3-mini or R1) that analyzes user requirements and documentation to create a detailed scope, which then guides specialized coding and routing agents in generating high-quality Pydantic AI agents.
 
 An intelligent documentation crawler and RAG (Retrieval-Augmented Generation) system built using Pydantic AI, LangGraph, and Supabase that is capable of building other Pydantic AI agents. The system crawls the Pydantic AI documentation, stores content in a vector database, and provides Pydantic AI agent code by retrieving and analyzing relevant documentation chunks.
 
 This version also supports local LLMs with Ollama for the main agent and reasoning LLM.
 
-Note that we are still relying on OpenAI for embeddings no matter what, but future versions of Archon will change that.
+Note that we are still relying on OpenAI for embeddings no matter what, but future versions of JunctionGenerator will change that.
 
 ## Features
 
@@ -30,8 +30,8 @@ Note that we are still relying on OpenAI for embeddings no matter what, but futu
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/coleam00/archon.git
-cd archon/iterations/v2-agentic-workflow
+git clone https://github.com/coleam00/JunctionGenerator.git
+cd JunctionGenerator/iterations/v2-agentic-workflow
 ```
 
 2. Install dependencies (recommended to use a Python virtual environment):
@@ -120,7 +120,7 @@ CREATE TABLE site_pages (
 
 ## Project Structure
 
-- `archon_graph.py`: LangGraph workflow definition and agent coordination
+- `JunctionGenerator_graph.py`: LangGraph workflow definition and agent coordination
 - `pydantic_ai_coder.py`: Main coding agent with RAG capabilities
 - `crawl_pydantic_ai_docs.py`: Documentation crawler and processor
 - `streamlit_ui.py`: Web interface with streaming support

@@ -13,7 +13,7 @@ import os
 load_dotenv()
 
 # Initialize FastMCP server with ERROR logging level
-mcp = FastMCP("archon", log_level="ERROR")
+mcp = FastMCP("JunctionGenerator", log_level="ERROR")
 
 # Store active threads
 active_threads: Dict[str, List[str]] = {}
@@ -42,8 +42,8 @@ def write_to_log(message: str):
 
 @mcp.tool()
 async def create_thread() -> str:
-    """Create a new conversation thread for Archon.
-    Always call this tool before invoking Archon for the first time in a conversation.
+    """Create a new conversation thread for JunctionGenerator.
+    Always call this tool before invoking JunctionGenerator for the first time in a conversation.
     (if you don't already have a thread ID)
     
     Returns:
@@ -80,10 +80,10 @@ def _make_request(thread_id: str, user_input: str, config: dict) -> str:
 
 @mcp.tool()
 async def run_agent(thread_id: str, user_input: str) -> str:
-    """Run the Archon agent with user input.
+    """Run the JunctionGenerator agent with user input.
     Only use this tool after you have called create_thread in this conversation to get a unique thread ID.
     If you already created a thread ID in this conversation, do not create another one. Reuse the same ID.
-    After you receive the code from Archon, always implement it into the codebase unless asked not to.
+    After you receive the code from JunctionGenerator, always implement it into the codebase unless asked not to.
 
     After using this tool and implementing the code it gave back, ask the user if they want you to refine the agent
     autonomously (they can just say 'refine') or they can just give feedback and you'll improve the agent that way.

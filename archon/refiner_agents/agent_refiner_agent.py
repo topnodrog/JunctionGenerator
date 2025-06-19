@@ -19,8 +19,8 @@ from supabase import Client
 # Add the parent directory to sys.path to allow importing from the parent directory
 sys.path.append(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 from utils.utils import get_env_var
-from archon.agent_prompts import agent_refiner_prompt
-from archon.agent_tools import (
+from JunctionGenerator.agent_prompts import agent_refiner_prompt
+from JunctionGenerator.agent_tools import (
     retrieve_relevant_documentation_tool,
     list_documentation_pages_tool,
     get_page_content_tool

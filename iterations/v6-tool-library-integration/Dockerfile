@@ -21,7 +21,7 @@ ENV PYTHONPATH=/app
 # Expose port for Streamlit
 EXPOSE 8501
 
-# Expose port for the Archon Service (started within Streamlit)
+# Expose port for the JunctionGenerator Service (started within Streamlit)
 EXPOSE 8100
 
 # Set the entrypoint to run Streamlit directly

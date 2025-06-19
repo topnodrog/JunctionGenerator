@@ -6,7 +6,7 @@ import asyncio
 
 # Set page config - must be the first Streamlit command
 st.set_page_config(
-    page_title="Archon - Agent Builder",
+    page_title="JunctionGenerator - Agent Builder",
     page_icon="🤖",
     layout="wide",
 )
@@ -47,7 +47,7 @@ async def main():
 
     # Add sidebar navigation
     with st.sidebar:
-        st.image("public/ArchonLightGrey.png", width=1000)
+        st.image("public/JunctionGeneratorLightGrey.png", width=1000)
         
         # Navigation options with vertical buttons
         st.write("### Navigation")
@@ -86,28 +86,28 @@ async def main():
     
     # Display the selected tab
     if st.session_state.selected_tab == "Intro":
-        st.title("Archon - Introduction")
+        st.title("JunctionGenerator - Introduction")
         intro_tab()
     elif st.session_state.selected_tab == "Chat":
-        st.title("Archon - Agent Builder")
+        st.title("JunctionGenerator - Agent Builder")
         await chat_tab()
     elif st.session_state.selected_tab == "MCP":
-        st.title("Archon - MCP Configuration")
+        st.title("JunctionGenerator - MCP Configuration")
         mcp_tab()
     elif st.session_state.selected_tab == "Environment":
-        st.title("Archon - Environment Configuration")
+        st.title("JunctionGenerator - Environment Configuration")
         environment_tab()
     elif st.session_state.selected_tab == "Agent Service":
-        st.title("Archon - Agent Service")
+        st.title("JunctionGenerator - Agent Service")
         agent_service_tab()
     elif st.session_state.selected_tab == "Database":
-        st.title("Archon - Database Configuration")
+        st.title("JunctionGenerator - Database Configuration")
         database_tab(supabase)
     elif st.session_state.selected_tab == "Documentation":
-        st.title("Archon - Documentation")
+        st.title("JunctionGenerator - Documentation")
         documentation_tab(supabase)
     elif st.session_state.selected_tab == "Future Enhancements":
-        st.title("Archon - Future Enhancements")
+        st.title("JunctionGenerator - Future Enhancements")
         future_enhancements_tab()
 
 if __name__ == "__main__":

@@ -8,12 +8,12 @@ import sys
 import os
 
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-from utils.utils import reload_archon_graph
+from utils.utils import reload_JunctionGenerator_graph
 
 def agent_service_tab():
     """Display the agent service interface for managing the graph service"""
     st.header("MCP Agent Service")
-    st.write("Start, restart, and monitor the Archon agent service for MCP.")
+    st.write("Start, restart, and monitor the JunctionGenerator agent service for MCP.")
     
     # Initialize session state variables if they don't exist
     if "service_process" not in st.session_state:
@@ -208,7 +208,7 @@ def agent_service_tab():
         
         # Use a text area for scrollable output
         st.text_area(
-            label="Realtime Logs from Archon Service",
+            label="Realtime Logs from JunctionGenerator Service",
             value=output_text,
             height=output_height,
             disabled=True,

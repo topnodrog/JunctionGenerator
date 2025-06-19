@@ -1,4 +1,4 @@
-name: Build Archon
+name: Build JunctionGenerator
 
 on:
   push:
@@ -84,17 +84,17 @@ jobs:
           
       - name: Verify containers are built
         run: |
-          docker images | grep archon
-          docker images | grep archon-mcp
+          docker images | grep JunctionGenerator
+          docker images | grep JunctionGenerator-mcp
           
       - name: Test container running status
         run: |
-          docker ps -a | grep archon-container
+          docker ps -a | grep JunctionGenerator-container
           
       - name: Stop containers
         run: |
-          docker stop archon-container || true
-          docker rm archon-container || true
-          docker stop archon-mcp || true
-          docker rm archon-mcp || true
-          docker ps -a | grep archon || echo "All containers successfully removed"
+          docker stop JunctionGenerator-container || true
+          docker rm JunctionGenerator-container || true
+          docker stop JunctionGenerator-mcp || true
+          docker rm JunctionGenerator-mcp || true
+          docker ps -a | grep JunctionGenerator || echo "All containers successfully removed"

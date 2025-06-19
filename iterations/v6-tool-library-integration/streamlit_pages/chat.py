@@ -6,7 +6,7 @@ import os
 
 # Add the current directory to Python path
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-from archon.archon_graph import agentic_flow
+from JunctionGenerator.JunctionGenerator_graph import agentic_flow
 
 @st.cache_resource
 def get_thread_id():
@@ -39,7 +39,7 @@ async def run_agent_with_streaming(user_input: str):
             yield msg
 
 async def chat_tab():
-    """Display the chat interface for talking to Archon"""
+    """Display the chat interface for talking to JunctionGenerator"""
     st.write("Describe to me an AI agent you want to build and I'll code it for you with Pydantic AI.")
     st.write("Example: Build me an AI agent that can search the web with the Brave API.")
 
@@ -76,7 +76,7 @@ async def chat_tab():
             message_placeholder = st.empty()  # Placeholder for updating the message
             
             # Add a spinner while loading
-            with st.spinner("Archon is thinking..."):
+            with st.spinner("JunctionGenerator is thinking..."):
                 # Run the async generator to fetch responses
                 async for chunk in run_agent_with_streaming(user_input):
                     response_content += chunk

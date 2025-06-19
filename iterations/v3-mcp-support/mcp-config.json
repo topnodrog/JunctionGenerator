@@ -1,9 +1,9 @@
 {
   "mcpServers": {
-    "archon": {
-      "command": "[path to Archon]\\archon\\venv\\Scripts\\python.exe",
+    "JunctionGenerator": {
+      "command": "[path to JunctionGenerator]\\JunctionGenerator\\venv\\Scripts\\python.exe",
       "args": [
-        "[path to Archon]\\archon\\mcp_server.py"
+        "[path to JunctionGenerator]\\JunctionGenerator\\mcp_server.py"
       ]
     }
   }

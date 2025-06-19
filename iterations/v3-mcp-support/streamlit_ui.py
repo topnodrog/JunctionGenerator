@@ -27,7 +27,7 @@ from pydantic_ai.messages import (
 
 # Add the current directory to Python path
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
-from archon.archon_graph import agentic_flow
+from JunctionGenerator.JunctionGenerator_graph import agentic_flow
 
 # Load environment variables
 from dotenv import load_dotenv
@@ -84,7 +84,7 @@ async def run_agent_with_streaming(user_input: str):
 
 
 async def main():
-    st.title("Archon - Agent Builder")
+    st.title("JunctionGenerator - Agent Builder")
     st.write("Describe to me an AI agent you want to build and I'll code it for you with Pydantic AI.")
     st.write("Example: Build me an AI agent that can search the web with the Brave API.")
 

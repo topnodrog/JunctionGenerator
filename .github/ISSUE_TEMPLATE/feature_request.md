@@ -1,6 +1,6 @@
 ---
 name: Feature Request
-about: Suggest an idea for Archon
+about: Suggest an idea for JunctionGenerator
 title: '[FEATURE] '
 labels: enhancement
 assignees: ''

@@ -357,27 +357,27 @@ def create_new_tab_button(label, tab_name, key=None, use_container_width=False):
     if st.button(label, key=key, use_container_width=use_container_width):
         webbrowser.open_new_tab(new_tab_url)
 
-# Function to reload the archon_graph module
-def reload_archon_graph(show_reload_success=True):
-    """Reload the archon_graph module to apply new environment variables"""
+# Function to reload the JunctionGenerator_graph module
+def reload_JunctionGenerator_graph(show_reload_success=True):
+    """Reload the JunctionGenerator_graph module to apply new environment variables"""
     try:
         # First reload pydantic_ai_coder
-        import archon.pydantic_ai_coder
-        importlib.reload(archon.pydantic_ai_coder)
+        import JunctionGenerator.pydantic_ai_coder
+        importlib.reload(JunctionGenerator.pydantic_ai_coder)
         
-        # Then reload archon_graph which imports pydantic_ai_coder
-        import archon.archon_graph
-        importlib.reload(archon.archon_graph)
+        # Then reload JunctionGenerator_graph which imports pydantic_ai_coder
+        import JunctionGenerator.JunctionGenerator_graph
+        importlib.reload(JunctionGenerator.JunctionGenerator_graph)
 
         # Then reload the crawler
-        import archon.crawl_pydantic_ai_docs
-        importlib.reload(archon.crawl_pydantic_ai_docs)        
+        import JunctionGenerator.crawl_pydantic_ai_docs
+        importlib.reload(JunctionGenerator.crawl_pydantic_ai_docs)        
         
         if show_reload_success:
-            st.success("Successfully reloaded Archon modules with new environment variables!")
+            st.success("Successfully reloaded JunctionGenerator modules with new environment variables!")
         return True
     except Exception as e:
-        st.error(f"Error reloading Archon modules: {str(e)}")
+        st.error(f"Error reloading JunctionGenerator modules: {str(e)}")
         return False        
 
 def get_clients():

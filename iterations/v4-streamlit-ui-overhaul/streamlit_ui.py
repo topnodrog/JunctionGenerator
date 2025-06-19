@@ -39,7 +39,7 @@ from pydantic_ai.messages import (
 
 # Add the current directory to Python path
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
-from archon.archon_graph import agentic_flow
+from JunctionGenerator.JunctionGenerator_graph import agentic_flow
 
 # Load environment variables from .env file
 load_dotenv()
@@ -67,12 +67,12 @@ else:
 
 # Set page config - must be the first Streamlit command
 st.set_page_config(
-    page_title="Archon - Agent Builder",
+    page_title="JunctionGenerator - Agent Builder",
     page_icon="🤖",
     layout="wide",
 )
 
-# Set custom theme colors to match Archon logo (green and pink)
+# Set custom theme colors to match JunctionGenerator logo (green and pink)
 # Primary color (green) and secondary color (pink)
 st.markdown("""
     <style>
@@ -180,22 +180,22 @@ def create_new_tab_button(label, tab_name, key=None, use_container_width=False):
     if st.button(label, key=key, use_container_width=use_container_width):
         webbrowser.open_new_tab(new_tab_url)
 
-# Function to reload the archon_graph module
-def reload_archon_graph():
-    """Reload the archon_graph module to apply new environment variables"""
+# Function to reload the JunctionGenerator_graph module
+def reload_JunctionGenerator_graph():
+    """Reload the JunctionGenerator_graph module to apply new environment variables"""
     try:
         # First reload pydantic_ai_coder
-        import archon.pydantic_ai_coder
-        importlib.reload(archon.pydantic_ai_coder)
+        import JunctionGenerator.pydantic_ai_coder
+        importlib.reload(JunctionGenerator.pydantic_ai_coder)
         
-        # Then reload archon_graph which imports pydantic_ai_coder
-        import archon.archon_graph
-        importlib.reload(archon.archon_graph)
+        # Then reload JunctionGenerator_graph which imports pydantic_ai_coder
+        import JunctionGenerator.JunctionGenerator_graph
+        importlib.reload(JunctionGenerator.JunctionGenerator_graph)
         
-        st.success("Successfully reloaded Archon modules with new environment variables!")
+        st.success("Successfully reloaded JunctionGenerator modules with new environment variables!")
         return True
     except Exception as e:
-        st.error(f"Error reloading Archon modules: {str(e)}")
+        st.error(f"Error reloading JunctionGenerator modules: {str(e)}")
         return False
     
 # Configure logfire to suppress warnings (optional)
@@ -249,7 +249,7 @@ def generate_mcp_config(ide_type):
     # Create the config dictionary for Python
     python_config = {
         "mcpServers": {
-            "archon": {
+            "JunctionGenerator": {
                 "command": python_path,
                 "args": [server_script_path]
             }
@@ -259,7 +259,7 @@ def generate_mcp_config(ide_type):
     # Create the config dictionary for Docker
     docker_config = {
         "mcpServers": {
-            "archon": {
+            "JunctionGenerator": {
                 "command": "docker",
                 "args": [
                     "run",
@@ -267,7 +267,7 @@ def generate_mcp_config(ide_type):
                     "--rm",
                     "-e", 
                     "GRAPH_SERVICE_URL",
-                    "archon-mcp:latest"
+                    "JunctionGenerator-mcp:latest"
                 ],
                 "env": {
                     "GRAPH_SERVICE_URL": "http://host.docker.internal:8100"
@@ -280,7 +280,7 @@ def generate_mcp_config(ide_type):
     if ide_type == "Windsurf":
         return json.dumps(python_config, indent=2), json.dumps(docker_config, indent=2)
     elif ide_type == "Cursor":
-        return f"{python_path} {server_script_path}", f"docker run --rm -p 8100:8100 archon:latest python mcp_server.py"
+        return f"{python_path} {server_script_path}", f"docker run --rm -p 8100:8100 JunctionGenerator:latest python mcp_server.py"
     elif ide_type == "Cline":
         return json.dumps(python_config, indent=2), json.dumps(docker_config, indent=2)  # Assuming Cline uses the same format as Windsurf
     else:
@@ -339,7 +339,7 @@ def mcp_tab():
             st.markdown("- Python 3.11+ installed")
             st.markdown("- Virtual environment created and activated")
             st.markdown("- All dependencies installed via `pip install -r requirements.txt`")
-            st.markdown("- Must be running Archon not within a container")           
+            st.markdown("- Must be running JunctionGenerator not within a container")           
         
         # Instructions based on IDE type
         st.markdown("---")
@@ -358,7 +358,7 @@ def mcp_tab():
             #### How to use in Cursor:
             1. Go to Cursor Settings > Features > MCP
             2. Click on "+ Add New MCP Server"
-            3. Name: Archon
+            3. Name: JunctionGenerator
             4. Type: command (equivalent to stdio)
             5. Command: Paste the command from your preferred configuration tab above
             """)
@@ -373,7 +373,7 @@ def mcp_tab():
             """)
 
 async def chat_tab():
-    """Display the chat interface for talking to Archon"""
+    """Display the chat interface for talking to JunctionGenerator"""
     st.write("Describe to me an AI agent you want to build and I'll code it for you with Pydantic AI.")
     st.write("Example: Build me an AI agent that can search the web with the Brave API.")
 
@@ -412,26 +412,26 @@ async def chat_tab():
         st.session_state.messages.append({"type": "ai", "content": response_content})
 
 def intro_tab():
-    """Display the introduction and setup guide for Archon"""
+    """Display the introduction and setup guide for JunctionGenerator"""
     # Display the banner image
-    st.image("public/Archon.png", use_container_width=True)
+    st.image("public/JunctionGenerator.png", use_container_width=True)
     
     # Welcome message
     st.markdown("""
-    # Welcome to Archon!
+    # Welcome to JunctionGenerator!
     
-    Archon is an AI meta-agent designed to autonomously build, refine, and optimize other AI agents.
+    JunctionGenerator is an AI meta-agent designed to autonomously build, refine, and optimize other AI agents.
     
     It serves both as a practical tool for developers and as an educational framework demonstrating the evolution of agentic systems.
-    Archon is developed in iterations, starting with a simple Pydantic AI agent that can build other Pydantic AI agents,
+    JunctionGenerator is developed in iterations, starting with a simple Pydantic AI agent that can build other Pydantic AI agents,
     all the way to a full agentic workflow using LangGraph that can build other AI agents with any framework.
     
-    Through its iterative development, Archon showcases the power of planning, feedback loops, and domain-specific knowledge in creating robust AI agents.
+    Through its iterative development, JunctionGenerator showcases the power of planning, feedback loops, and domain-specific knowledge in creating robust AI agents.
     """)
     
     # Setup guide with expandable sections
     st.markdown("## Setup Guide")
-    st.markdown("Follow these concise steps to get Archon up and running (IMPORTANT: come back here after each step):")
+    st.markdown("Follow these concise steps to get JunctionGenerator up and running (IMPORTANT: come back here after each step):")
     
     # Step 1: Environment Configuration
     with st.expander("Step 1: Environment Configuration", expanded=True):
@@ -450,7 +450,7 @@ def intro_tab():
            - `PRIMARY_MODEL`: Main agent model (e.g., gpt-4o-mini)
            - `REASONER_MODEL`: Planning model (e.g., o3-mini)
         
-        These settings determine how Archon connects to external services and which models it uses.
+        These settings determine how JunctionGenerator connects to external services and which models it uses.
         """)
         # Add a button to navigate to the Environment tab
         create_new_tab_button("Go to Environment Section (New Tab)", "Environment", key="goto_env", use_container_width=True)
@@ -460,7 +460,7 @@ def intro_tab():
         st.markdown("""
         ### Database Setup
         
-        Archon uses Supabase for vector storage and retrieval:
+        JunctionGenerator uses Supabase for vector storage and retrieval:
         
         1. Go to the **Database** tab
         2. Select your embedding dimensions (1536 for OpenAI, 768 for nomic-embed-text)
@@ -514,23 +514,23 @@ def intro_tab():
         2. Select your IDE (Windsurf, Cursor, Cline, or Roo Code)
         3. Follow the instructions to configure your IDE
         
-        This enables you to use Archon directly from your AI-powered IDE.
+        This enables you to use JunctionGenerator directly from your AI-powered IDE.
         """)
         # Add a button to navigate to the MCP tab
         create_new_tab_button("Go to MCP Section (New Tab)", "MCP", key="goto_mcp", use_container_width=True)
     
-    # Step 6: Using Archon
-    with st.expander("Step 6: Using Archon", expanded=False):
+    # Step 6: Using JunctionGenerator
+    with st.expander("Step 6: Using JunctionGenerator", expanded=False):
         st.markdown("""
-        ### Using Archon
+        ### Using JunctionGenerator
         
         Once everything is set up:
         
         1. Go to the **Chat** tab
         2. Describe the agent you want to build
-        3. Archon will plan and generate the necessary code
+        3. JunctionGenerator will plan and generate the necessary code
         
-        You can also use Archon directly from your AI IDE if you've configured MCP.
+        You can also use JunctionGenerator directly from your AI IDE if you've configured MCP.
         """)
         # Add a button to navigate to the Chat tab
         create_new_tab_button("Go to Chat Section (New Tab)", "Chat", key="goto_chat", use_container_width=True)
@@ -539,8 +539,8 @@ def intro_tab():
     st.markdown("""
     ## Additional Resources
     
-    - [GitHub Repository](https://github.com/coleam00/archon)
-    - [Archon Community Forum](https://thinktank.ottomator.ai/c/archon/30)
+    - [GitHub Repository](https://github.com/coleam00/JunctionGenerator)
+    - [JunctionGenerator Community Forum](https://thinktank.ottomator.ai/c/JunctionGenerator/30)
     - [GitHub Kanban Board](https://github.com/users/coleam00/projects/1)
     """)
 
@@ -592,7 +592,7 @@ def documentation_tab():
                 if st.button("Crawl Pydantic AI Docs", key="crawl_pydantic") and not (st.session_state.crawl_tracker and st.session_state.crawl_tracker.is_running):
                     try:
                         # Import the progress tracker
-                        from archon.crawl_pydantic_ai_docs import start_crawl_with_requests
+                        from JunctionGenerator.crawl_pydantic_ai_docs import start_crawl_with_requests
                         
                         # Define a callback function to update the session state
                         def update_progress(status):
@@ -613,7 +613,7 @@ def documentation_tab():
                     with st.spinner("Clearing existing Pydantic AI docs..."):
                         try:
                             # Import the function to clear records
-                            from archon.crawl_pydantic_ai_docs import clear_existing_records
+                            from JunctionGenerator.crawl_pydantic_ai_docs import clear_existing_records
                             
                             # Run the function to clear records
                             asyncio.run(clear_existing_records())
@@ -713,7 +713,7 @@ def load_sql_template():
 def database_tab():
     """Display the database configuration interface"""
     st.header("Database Configuration")
-    st.write("Set up and manage your Supabase database tables for Archon.")
+    st.write("Set up and manage your Supabase database tables for JunctionGenerator.")
     
     # Check if Supabase is configured
     if not supabase:
@@ -881,7 +881,7 @@ def show_manual_sql_instructions(sql, recreate=False):
 def agent_service_tab():
     """Display the agent service interface for managing the graph service"""
     st.header("MCP Agent Service")
-    st.write("Start, restart, and monitor the Archon agent service for MCP.")
+    st.write("Start, restart, and monitor the JunctionGenerator agent service for MCP.")
     
     # Initialize session state variables if they don't exist
     if "service_process" not in st.session_state:
@@ -1076,7 +1076,7 @@ def agent_service_tab():
         
         # Use a text area for scrollable output
         st.text_area(
-            label="Realtime Logs from Archon Service",
+            label="Realtime Logs from JunctionGenerator Service",
             value=output_text,
             height=output_height,
             disabled=True,
@@ -1100,7 +1100,7 @@ def agent_service_tab():
 def environment_tab():
     """Display the environment variables configuration interface"""
     st.header("Environment Variables")
-    st.write("- Configure your environment variables for Archon. These settings will be saved and used for future sessions.")
+    st.write("- Configure your environment variables for JunctionGenerator. These settings will be saved and used for future sessions.")
     st.write("- NOTE: Press 'enter' to save after inputting a variable, otherwise click the 'save' button at the bottom.")
     st.write("- HELP: Hover over the '?' icon on the right for each environment variable for help/examples.")
     st.warning("⚠️ If your agent service for MCP is already running, you'll need to restart it after changing environment variables.")
@@ -1202,7 +1202,7 @@ def environment_tab():
             
             if success:
                 st.success("Environment variables saved successfully!")
-                reload_archon_graph()
+                reload_JunctionGenerator_graph()
 
 async def main():
     # Check for tab query parameter
@@ -1214,7 +1214,7 @@ async def main():
 
     # Add sidebar navigation
     with st.sidebar:
-        st.image("public/ArchonLightGrey.png", width=1000)
+        st.image("public/JunctionGeneratorLightGrey.png", width=1000)
         
         # Navigation options with vertical buttons
         st.write("### Navigation")
@@ -1253,28 +1253,28 @@ async def main():
     
     # Display the selected tab
     if st.session_state.selected_tab == "Intro":
-        st.title("Archon - Introduction")
+        st.title("JunctionGenerator - Introduction")
         intro_tab()
     elif st.session_state.selected_tab == "Chat":
-        st.title("Archon - Agent Builder")
+        st.title("JunctionGenerator - Agent Builder")
         await chat_tab()
     elif st.session_state.selected_tab == "MCP":
-        st.title("Archon - MCP Configuration")
+        st.title("JunctionGenerator - MCP Configuration")
         mcp_tab()
     elif st.session_state.selected_tab == "Environment":
-        st.title("Archon - Environment Configuration")
+        st.title("JunctionGenerator - Environment Configuration")
         environment_tab()
     elif st.session_state.selected_tab == "Agent Service":
-        st.title("Archon - Agent Service")
+        st.title("JunctionGenerator - Agent Service")
         agent_service_tab()
     elif st.session_state.selected_tab == "Database":
-        st.title("Archon - Database Configuration")
+        st.title("JunctionGenerator - Database Configuration")
         database_tab()
     elif st.session_state.selected_tab == "Documentation":
-        st.title("Archon - Documentation")
+        st.title("JunctionGenerator - Documentation")
         documentation_tab()
     elif st.session_state.selected_tab == "Future Enhancements":
-        st.title("Archon - Future Enhancements")
+        st.title("JunctionGenerator - Future Enhancements")
         future_enhancements_tab()
 
 if __name__ == "__main__":

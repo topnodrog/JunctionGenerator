@@ -1,6 +1,6 @@
 ---
 name: Bug Report
-about: Create a report to help improve Archon
+about: Create a report to help improve JunctionGenerator
 title: '[BUG] '
 labels: bug
 assignees: ''

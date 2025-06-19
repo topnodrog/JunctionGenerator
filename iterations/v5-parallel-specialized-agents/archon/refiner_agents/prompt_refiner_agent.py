@@ -12,7 +12,7 @@ from supabase import Client
 # Add the parent directory to sys.path to allow importing from the parent directory
 sys.path.append(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 from utils.utils import get_env_var
-from archon.agent_prompts import prompt_refiner_prompt
+from JunctionGenerator.agent_prompts import prompt_refiner_prompt
 
 load_dotenv()
 
