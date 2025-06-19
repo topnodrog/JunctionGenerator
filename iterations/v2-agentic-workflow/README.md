@@ -30,7 +30,7 @@ Note that we are still relying on OpenAI for embeddings no matter what, but futu
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/coleam00/JunctionGenerator.git
+git clone https://github.com/topnodrog/JunctionGenerator.git
 cd JunctionGenerator/iterations/v2-agentic-workflow
 ```
 
@@ -50,8 +50,8 @@ pip install -r requirements.txt
    OPENAI_API_KEY=your_openai_api_key
    SUPABASE_URL=your_supabase_url
    SUPABASE_SERVICE_KEY=your_supabase_service_key
-   PRIMARY_MODEL=gpt-4o-mini  # or your preferred OpenAI model for main agent
-   REASONER_MODEL=o3-mini     # or your preferred OpenAI model for reasoning
+   PRIMARY_MODEL=gpt-4.1  # or your preferred OpenAI model for main agent
+   REASONER_MODEL=o3     # or your preferred OpenAI model for reasoning
    ```
 
 ## Usage
