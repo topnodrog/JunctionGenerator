@@ -615,7 +615,7 @@ def future_enhancements_tab():
         
         st.write("#### Local AI Package Integration")
         st.markdown("""
-        The [Local AI package](https://github.com/coleam00/local-ai-packaged) provides a containerized environment for:
+        The [Local AI package](https://github.com/topnodrog/local-ai-packaged) provides a containerized environment for:
         - Running LLMs locally for agent testing
         - Simulating API calls and external dependencies
         - Monitoring agent behavior in a controlled setting
@@ -816,7 +816,7 @@ def future_enhancements_tab():
     
     # Local AI Package
     with st.expander("Local AI Package Integration"):
-        st.write("Integration with [Local AI Package](https://github.com/coleam00/local-ai-packaged)")
+        st.write("Integration with [Local AI Package](https://github.com/topnodrog/local-ai-packaged)")
         
         st.markdown("""
         The Local AI Package enables running models entirely locally, providing:

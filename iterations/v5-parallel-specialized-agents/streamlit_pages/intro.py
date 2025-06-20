@@ -134,7 +134,7 @@ def intro_tab():
     st.markdown("""
     ## Additional Resources
     
-    - [GitHub Repository](https://github.com/coleam00/JunctionGenerator)
+    - [GitHub Repository](https://github.com/topnodrog/JunctionGenerator)
     - [JunctionGenerator Community Forum](https://thinktank.ottomator.ai/c/JunctionGenerator/30)
-    - [GitHub Kanban Board](https://github.com/users/coleam00/projects/1)
+    - [GitHub Kanban Board](https://github.com/users/topnodrog/projects/1)
     """)

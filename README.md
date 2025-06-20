@@ -26,7 +26,7 @@ Through its iterative development, JunctionGenerator showcases the power of plan
 
 - I **just** created the [JunctionGenerator community](https://thinktank.ottomator.ai/c/JunctionGenerator/30) forum over in the oTTomator Think Tank! Please post any questions you have there!
 
-- [GitHub Kanban board](https://github.com/users/coleam00/projects/1) for feature implementation and bug squashing.
+- [GitHub Kanban board](https://github.com/users/topnodrog/projects/1) for feature implementation and bug squashing.
 
 ## Vision
 
@@ -53,7 +53,7 @@ Note that the examples/tool library for JunctionGenerator is just starting out. 
 #### Option 1: Docker (Recommended)
 1. Clone the repository:
 ```bash
-git clone https://github.com/coleam00/JunctionGenerator.git
+git clone https://github.com/topnodrog/JunctionGenerator.git
 cd JunctionGenerator
 ```
 
@@ -74,7 +74,7 @@ python run_docker.py
 #### Option 2: Local Python Installation
 1. Clone the repository:
 ```bash
-git clone https://github.com/coleam00/JunctionGenerator.git
+git clone https://github.com/topnodrog/JunctionGenerator.git
 cd JunctionGenerator
 ```
 
@@ -212,7 +212,7 @@ This ensures you're always running the most recent version of JunctionGenerator 
 - MCP marketplace
 - Other frameworks besides Pydantic AI
 - Other vector databases besides Supabase
-- [Local AI package](https://github.com/coleam00/local-ai-packaged) for the agent environment
+- [Local AI package](https://github.com/topnodrog/local-ai-packaged) for the agent environment
 
 ## JunctionGenerator Agents Architecture
 

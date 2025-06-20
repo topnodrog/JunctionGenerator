@@ -24,7 +24,7 @@ An intelligent documentation crawler and RAG (Retrieval-Augmented Generation) ag
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/coleam00/JunctionGenerator.git
+git clone https://github.com/topnodrog/JunctionGenerator.git
 cd JunctionGenerator/iterations/v1-single-agent
 ```
 

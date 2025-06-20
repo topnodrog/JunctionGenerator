@@ -32,7 +32,7 @@ This version continues to support both local LLMs with Ollama and cloud-based LL
 ### Option 1: Docker (Recommended)
 1. Clone the repository:
 ```bash
-git clone https://github.com/coleam00/JunctionGenerator.git
+git clone https://github.com/topnodrog/JunctionGenerator.git
 cd JunctionGenerator/iterations/v4-streamlit-ui-overhaul
 ```
 
@@ -53,7 +53,7 @@ python run_docker.py
 ### Option 2: Local Python Installation
 1. Clone the repository:
 ```bash
-git clone https://github.com/coleam00/JunctionGenerator.git
+git clone https://github.com/topnodrog/JunctionGenerator.git
 cd JunctionGenerator/iterations/v4-streamlit-ui-overhaul
 ```
 

@@ -117,7 +117,7 @@ Contributions are welcome! The prebuilt component library is just starting out, 
 ### Option 1: Docker (Recommended)
 1. Clone the repository:
 ```bash
-git clone https://github.com/coleam00/JunctionGenerator.git
+git clone https://github.com/topnodrog/JunctionGenerator.git
 cd JunctionGenerator
 ```
 
@@ -132,7 +132,7 @@ python run_docker.py
 ### Option 2: Local Python Installation
 1. Clone the repository:
 ```bash
-git clone https://github.com/coleam00/JunctionGenerator.git
+git clone https://github.com/topnodrog/JunctionGenerator.git
 cd JunctionGenerator
 ```
 

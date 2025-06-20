@@ -36,7 +36,7 @@ There are two ways to install JunctionGenerator V3:
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/coleam00/JunctionGenerator.git
+git clone https://github.com/topnodrog/JunctionGenerator.git
 cd JunctionGenerator/iterations/v3-mcp-support
 ```
 

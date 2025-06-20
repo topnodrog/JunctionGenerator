@@ -76,7 +76,7 @@ The graph shows how control flows between different agents and how user input ca
 ### Option 1: Docker (Recommended)
 1. Clone the repository:
 ```bash
-git clone https://github.com/coleam00/JunctionGenerator.git
+git clone https://github.com/topnodrog/JunctionGenerator.git
 cd JunctionGenerator
 ```
 
@@ -91,7 +91,7 @@ python run_docker.py
 ### Option 2: Local Python Installation
 1. Clone the repository:
 ```bash
-git clone https://github.com/coleam00/JunctionGenerator.git
+git clone https://github.com/topnodrog/JunctionGenerator.git
 cd JunctionGenerator
 ```
 
