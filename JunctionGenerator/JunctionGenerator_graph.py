@@ -21,11 +21,12 @@ from pydantic_ai.messages import (
 
 # Add the parent directory to Python path
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-from JunctionGenerator.pydantic_ai_coder import pydantic_ai_coder, PydanticAIDeps
-from JunctionGenerator.refiner_agents.prompt_refiner_agent import prompt_refiner_agent
-from JunctionGenerator.refiner_agents.tools_refiner_agent import tools_refiner_agent, ToolsRefinerDeps
-from JunctionGenerator.refiner_agents.agent_refiner_agent import agent_refiner_agent, AgentRefinerDeps
-from JunctionGenerator.agent_tools import list_documentation_pages_tool
+from pydantic_ai_coder import pydantic_ai_coder, PydanticAIDeps
+from advisor_agent import advisor_agent, AdvisorDeps
+from refiner_agents.prompt_refiner_agent import prompt_refiner_agent
+from refiner_agents.tools_refiner_agent import tools_refiner_agent, ToolsRefinerDeps
+from refiner_agents.agent_refiner_agent import agent_refiner_agent, AgentRefinerDeps
+from agent_tools import list_documentation_pages_tool
 from utils.utils import get_env_var, get_clients
 
 # Load environment variables
@@ -71,6 +72,8 @@ class AgentState(TypedDict):
     messages: Annotated[List[bytes], lambda x, y: x + y]
 
     scope: str
+    advisor_output: str
+    file_list: List[str]
 
     refined_prompt: str
     refined_tools: str
@@ -113,13 +116,40 @@ async def define_scope_with_reasoner(state: AgentState):
     
     return {"scope": scope}
 
+# Advisor agent - create a starting point based on examples and prebuilt tools/MCP servers
+async def advisor_with_examples(state: AgentState):
+    # Get the directory one level up from the current file (JunctionGenerator_graph.py)
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    parent_dir = os.path.dirname(current_dir)
+    
+    # The agent-resources folder is adjacent to the parent folder of JunctionGenerator_graph.py
+    agent_resources_dir = os.path.join(parent_dir, "agent-resources")
+    
+    # Get a list of all files in the agent-resources directory and its subdirectories
+    file_list = []
+    
+    for root, dirs, files in os.walk(agent_resources_dir):
+        for file in files:
+            # Get the full path to the file
+            file_path = os.path.join(root, file)
+            # Use the full path instead of relative path
+            file_list.append(file_path)
+    
+    # Then, prompt the advisor with the list of files it can use for examples and tools
+    deps = AdvisorDeps(file_list=file_list)
+    result = await advisor_agent.run(state['latest_user_message'], deps=deps)
+    advisor_output = result.data
+    
+    return {"file_list": file_list, "advisor_output": advisor_output}
+
 # Coding Node with Feedback Handling
 async def coder_agent(state: AgentState, writer):    
     # Prepare dependencies
     deps = PydanticAIDeps(
         supabase=supabase,
         embedding_client=embedding_client,
-        reasoner_output=state['scope']
+        reasoner_output=state['scope'],
+        advisor_output=state['advisor_output']
     )
 
     # Get the message history into the format for Pydantic AI
@@ -219,7 +249,8 @@ async def refine_tools(state: AgentState):
     # Prepare dependencies
     deps = ToolsRefinerDeps(
         supabase=supabase,
-        embedding_client=embedding_client
+        embedding_client=embedding_client,
+        file_list=state['file_list']
     )
 
     # Get the message history into the format for Pydantic AI
@@ -282,6 +313,7 @@ builder = StateGraph(AgentState)
 
 # Add nodes
 builder.add_node("define_scope_with_reasoner", define_scope_with_reasoner)
+builder.add_node("advisor_with_examples", advisor_with_examples)
 builder.add_node("coder_agent", coder_agent)
 builder.add_node("get_next_user_message", get_next_user_message)
 builder.add_node("refine_prompt", refine_prompt)
@@ -291,7 +323,9 @@ builder.add_node("finish_conversation", finish_conversation)
 
 # Set edges
 builder.add_edge(START, "define_scope_with_reasoner")
+builder.add_edge(START, "advisor_with_examples")
 builder.add_edge("define_scope_with_reasoner", "coder_agent")
+builder.add_edge("advisor_with_examples", "coder_agent")
 builder.add_edge("coder_agent", "get_next_user_message")
 builder.add_conditional_edges(
     "get_next_user_message",

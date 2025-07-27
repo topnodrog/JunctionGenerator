@@ -21,7 +21,7 @@ from pydantic_ai.messages import (
 
 # Add the parent directory to Python path
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-from JunctionGenerator.pydantic_ai_coder import pydantic_ai_coder, PydanticAIDeps
+from pydantic_ai_coder import pydantic_ai_coder, PydanticAIDeps
 from JunctionGenerator.advisor_agent import advisor_agent, AdvisorDeps
 from JunctionGenerator.refiner_agents.prompt_refiner_agent import prompt_refiner_agent
 from JunctionGenerator.refiner_agents.tools_refiner_agent import tools_refiner_agent, ToolsRefinerDeps
